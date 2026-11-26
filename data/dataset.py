@@ -5,6 +5,9 @@ from tokenizers import Tokenizer
 class SMSDataset(Dataset):
     def __init__(self, data):
         self.data = data
+        # The DataFrame contains two columns: 'TEXT' and 'LABEL'.
+        # Convert both Pandas Series into Python lists to allow
+        # simple positional indexing when retrieving individual samples.
         self.text = data['TEXT'].tolist()
         self.labels = data['LABEL'].tolist()
 
@@ -16,7 +19,13 @@ class SMSDataset(Dataset):
             'text': self.text[idx],
             'label': self.labels[idx]
         }
-
+"""
+A custom collate function is needed because the default Pytorch
+collate function does not handle tokenization and dynamic padding.
+The tokenizer is passed in to tokenize the entire batch,
+truncate sequences exceeding max_length, 
+and pad them to the longest sequence in the current batch.
+"""
 def collate_fn(batch, tokenizer: Tokenizer):
     tokenizer.enable_truncation(max_length=256)
     tokenizer.enable_padding(pad_id=tokenizer.token_to_id('[PAD]'), pad_token='[PAD]')
