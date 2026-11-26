@@ -1,5 +1,6 @@
 from torch.utils.data import DataLoader
 from functools import partial
+from .dataset import SMSDataset, collate_fn
 
 def create_dataloader(data, tokenizer, batch_size=32, shuffle=False):
     dataset = SMSDataset(data)
