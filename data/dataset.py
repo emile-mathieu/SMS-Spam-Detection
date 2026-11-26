@@ -2,6 +2,8 @@ import torch
 from torch.utils.data import Dataset
 from tokenizers import Tokenizer
 
+# Dataset is an abstract class representing a dataset. 
+# Our custom dataset should inherit Dataset and override the following methods:
 class SMSDataset(Dataset):
     def __init__(self, data):
         self.data = data
