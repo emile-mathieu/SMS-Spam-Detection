@@ -14,13 +14,13 @@ The project is motivated by the relevance of mobile messaging scams, particularl
 - [ ] Implement Transformer encoder
 - [ ] Train and evaluate the model with baseline models
 
-## Dataset
+## Dataset License and Attribution
 
-The project uses the [SMS Phishing Dataset for Machine Learning and Pattern Recognition](https://data.mendeley.com/datasets/f45bkkt8pr/1), published by Sandhya Mishra and Devpriya Soni on Mendeley Data in June 20 2022.
+The project uses the [SMS Phishing Dataset for Machine Learning and Pattern Recognition](https://data.mendeley.com/datasets/f45bkkt8pr/1), published by Sandhya Mishra and Devpriya Soni on Mendeley Data on 20 June 2022, under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/) licence.
 
-The dataset contains 5,971 SMS messages across three classes. Only the `TEXT` and `LABEL` columns are used for the initial text-only classification experiment. The additional `URL`, `EMAIL` and `PHONE` features are excluded for now.
+The original dataset contains 5,971 labelled SMS messages across three classes: ham, spam and smishing. Following preprocessing, including whitespace normalisation, duplicate removal and removal of messages with conflicting labels, 5,797 samples were retained.
 
-The original dataset contains 5,971 labelled SMS messages. Following data preprocessing, 5,797 samples were retained.
+Only the `TEXT` and `LABEL` columns are used for the initial text-only classification experiment. The additional `URL`, `EMAIL` and `PHONE` features are excluded for now.
 
 | Class | Label | Processed samples |
 | --- | ---: | ---: |
@@ -131,9 +131,3 @@ pip install pandas requests scikit-learn tokenizers jupyter
 ├── requirements.txt
 └── README.md
 ```
-
-## Dataset Attribution
-
-Mishra, S. and Soni, D. (2022). *SMS Phishing Dataset for Machine Learning and Pattern Recognition*. Mendeley Data, V1. [https://doi.org/10.17632/f45bkkt8pr.1](https://doi.org/10.17632/f45bkkt8pr.1).
-
-The dataset is sourced from the original authors. Refer to the Mendeley Data record for its licence and attribution requirements.
