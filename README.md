@@ -115,6 +115,8 @@ pip install pandas requests scikit-learn tokenizers jupyter
 
 ### Intended Project Structure
 
+Note: The and `data/` directory and `tokenizer/` directories are not included in the repository. Refer to Getting Started for instructions on how to generate them.
+
 ```text
 ├── notebooks/
 │   ├── dataset.ipynb
